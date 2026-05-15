@@ -1,2 +1,50 @@
 # Cotton-Detection-and-Picking-Robot-using-ML
 A vision‑based robotic arm designed to automate cotton plucking in agricultural fields. The system uses a Raspberry Pi 4 with a camera and YOLOv8 model to detect cotton bolls, estimates distance using calibrated focal length, and sends coordinates to an Arduino‑controlled robotic arm for precise picking. 
+
+
+So hardware used:
+Raspberry Pi 4 Model B
+Arduino Uno R3
+
+OS:
+Raspberry Pi OS (Bookworm, 64-Bit)
+
+Python Version:
+Python 3.11
+
+Software and Dependenices:
+(Only install these ones since newer ones cause issues)
+
+1. pip install numpy==1.26.4
+2. pip install opencv-python==4.10.0.84 (newer openCV versions may force install NumPy 2.x -> does not work)
+3. pip install --upgrade pip pip install ultralytics
+
+Project Structure:
+Final_sem_pjct/
+	|- final_setup.py (for coordinates and robotic arm)
+	|- best.pt (Cotton detection ML model)
+	|- detect_xyz.py (just to get coordinates)
+
+
+Use rpicam-vid for camera instead of libcamera:
+rpicam-vid --width 320 --height 240 --framerate 30 --codec yuv420 --output -
+
+ML Model Details:
+Model: YOLOv8
+Format: .pt
+
+Example Output:
+cotton_1: 2.5, 1.8, 30.6, conf:0.82 
+-----------
+
+Distance Estimation:
+Z = (FOCAL_LENGTH × REAL_WIDTH) / pixel_width
+
+Parameters:
+FOCAL_LENGTH = 522 (calibrated experimentally)
+REAL_WIDTH = 5 cm (approx cotton diameter)
+
+Known Issue:
+1. Ghosting Effect: Due to camera buffer delay
+2. Detection Accuracy: Needs good lightning
+
