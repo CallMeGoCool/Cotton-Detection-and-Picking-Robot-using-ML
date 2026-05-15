@@ -1,5 +1,8 @@
 # Cotton-Detection-and-Picking-Robot-using-ML
-A vision‑based robotic arm designed to automate cotton plucking in agricultural fields. The system uses a Raspberry Pi 4 with a camera and YOLOv8 model to detect cotton bolls, estimates distance using calibrated focal length, and sends coordinates to an Arduino‑controlled robotic arm for precise picking. 
+A vision‑based robotic arm designed to automate cotton plucking in agricultural fields. The system uses a Raspberry Pi 4 with a camera and YOLOv8 model to detect cotton balls, estimates distance using calibrated focal length, and sends coordinates to an Arduino‑controlled robotic arm for precise picking. 
+
+
+Also in the repo, both onnx and yolo models are given. Based on requirements, you can choose any of them, but update the model chosen in the final_setup code as well.
 
 
 So hardware used:
